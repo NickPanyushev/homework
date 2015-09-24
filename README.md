@@ -1,2 +1,2 @@
 # homework
-#Панюшев Николай
+# Nickolay Panyushev
