@@ -1,19 +1,36 @@
-with open("C:\\Users\\User\\git\python-course\\exam\\yazkora.txt", "r", encoding="utf8") as file:
-    text = file.read() # считали весь файл
-
-def find_sentences(file): # ищем предложения, разделенные точкой
-    sentences = []
-    sentences.append(text.split("."))
-    return sentences # записали их в лист
+with open("yazkora.txt", "r", encoding="utf8") as file:
+    text = file.read()  # РѕС‚РєСЂС‹Р»Рё С„Р°Р№Р»
 
 
-def find_adj_in_sentence(file): # теперь ищем прилагательные
-    adjectives = [] # создали пустой лист для прилагательных из одного предложения
+def find_sentences(file):  # РЅР°Р№РґРµРј РІСЃРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ
+    lines, sentences = [], []
+    lines = file.split("\n")
+    for i in range(len(lines)):
+        sentences += lines[i].split('.')
+    return sentences
+
+
+def find_words(file):  # РЅР°Р№РґРµРј СЃР»РѕРІР° - СЌС‚Р° С„РёРіРЅСЏ РѕРїСЂРµРґРµР»СЏРµС‚ Рё Р·РЅР°РєРё РїРµСЂРµРЅРѕСЃР° СЃС‚СЂРѕРєРё
     k = find_sentences(file)
+    words = []
     for i in k:
-        words = [] #лист слов
-        words.append(k.split(' '))
-        for t in words:
-            if
+        words += i.split(' ')
+    return words
 
-sentences =
+
+def find_adj(file):
+    sentences = find_sentences(file)  # РЅР°С€Р»Рё РІСЃРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ
+    adj_in_sent = {}
+    for i in sentences:  # Р±РµР¶РёРјСЃСЏ РїРѕ РїСЂРµРґР»РѕР¶РµРЅРёСЏРј
+        words = []  # РѕР±РЅСѓР»РёР»Рё СЃС‡РµС‚С‡РёРє СЃР»РѕРІ
+        words = find_words(i)  # С‚РµРїРµСЂСЊ РЅР°С…РѕРґРёРј СЃР»РѕРІР° РІ РєР°Р¶РґРѕРј РїСЂРµРґР»РѕР¶РµРЅРёРё
+        adj_in_sent[i] = []  # РґР»СЏ РєР°Р¶РґРѕРіРѕ РїСЂРµРґР»РѕР¶РµРЅРёСЏ Р·Р°РІРµР»Рё СЃРІРѕР№ Р»РёСЃС‚ СЃ РїСЂРёР»Р°РіР°С‚РµР»СЊРЅС‹РјРё()
+        for k in words:
+            if k[-2:] == "yo":  # РЅР°С€Р»Рё РЅСѓР¶РЅРѕРµ РѕРєРѕРЅС‡Р°РЅРёРµ
+                adj_in_sent[i] += [k]
+    return adj_in_sent
+
+with open("result.txt", "w", encoding="utf8") as result:
+    for k in find_adj(text).values():
+        string = str(" ".join(k)) + "\n"  # СЂР°Р·РґРµР»СЏРµС‚ РїРѕ РїСЂРѕР±РµР»Сѓ k
+        result.write(string)
