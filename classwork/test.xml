@@ -1,0 +1,14 @@
+<scoreList>
+    <entry>
+        <student>Ivan Ivanov</student>
+        <score>5</score>
+    </entry>
+    <entry>
+        <student>Andrey Whatever</student>
+        <score>3</score>
+    </entry>
+    <entry>
+        <student>Mihail Klassniy</student>
+        <score>10</score>
+    </entry>
+</scoreList>
