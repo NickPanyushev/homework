@@ -2,20 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea514b78-20f1-4294-a9f0-0a223e0c6eca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../classwork/generator.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../homework/hw5/task1.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../homework/hw5/task2.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../homework/hw5/task3.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../homework/hw5/task4.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../homework/task0.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/nickolay.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/array_shift.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw8/task 3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw8/task_2.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/part-sum.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../list.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../selection sort.py" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../exam/.idea/.name" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../exam/.idea/exam.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../exam/.idea/misc.xml" afterPath="" />
@@ -25,8 +11,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../exam/result.txt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../exam/task1.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../exam/yazkora.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../classwork/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../classwork/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/binary search.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gene_start prediction.py" afterPath="" />
     </list>
     <ignored path="homeworks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,18 +32,7 @@
     <favorites_list name="homeworks" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="binary search.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hw8/binary search.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49881235">
-              <caret line="14" column="35" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -87,9 +62,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="49" />
-    <option name="y" value="24" />
+    <option name="y" value="52" />
     <option name="width" value="1317" />
-    <option name="height" value="744" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -134,7 +109,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hw8/binary search.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../exam/exam2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last.edited.regexp" value="" />
@@ -378,15 +353,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="24" width="1317" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="49" y="52" width="1317" height="716" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24981017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19817768" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -636,8 +611,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hw8/binary search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49881235">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.3206651">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding />
         </state>
       </provider>
