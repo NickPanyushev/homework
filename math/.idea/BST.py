@@ -58,3 +58,18 @@ def search(root, element):
         if root.get_left() == None:
             return None
         return search(root.get_left(), element)
+
+def max(root):
+    if not root.get_left():
+        return root.get_data()
+    else:
+        return max(root.get_left())
+
+def min(root):
+    if not root.get_right():
+        return root.get_data()
+    else:
+        return min(root.get_right())
+
+
+
