@@ -71,16 +71,5 @@ def min(root):
     else:
         return min(root.get_right())
 
-def delete(root, element):
-    node = search(root, element)
-    if search(root, element):
-        if node.get_left() == None and node.get_right() == None:
-            
-        return
-    else:
-        print('no node to delete')
-        return None
 
-print(search(tree, 7))
 
-print (delete(tree, 10))
