@@ -29,9 +29,9 @@ else:
 
 handle = Entrez.esearch(db='gds', term=term)
 result = Entrez.read(handle)
-print(result['IdList'])
+
 for i in result['IdList']:
     ID_output = Entrez.esummary(db='gds', id=i)
-    print(type(Entrez.read(ID_output)))
-    gse = Entrez.read(ID_output)['GSE']
-    print(gse)
+    out_dict = Entrez.read(ID_output)[0]
+    out = [out_dict['Accession'], out_dict['taxon'], out_dict['title']]
+    print('\t'.join(out))
