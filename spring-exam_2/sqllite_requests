@@ -1,0 +1,30 @@
+#1
+sqlite> select * from Users order by username limit 10;
+75|Alex_Gallywix|2013-02-02 14:39:19
+51|Alex_Hellscream|2012-11-16 11:46:35
+40|Alex_Sunstrider|2003-09-21 16:31:56
+15|Anna_Anvilmar|2012-04-09 13:41:36
+59|Anna_Gallywix|2011-12-14 02:32:31
+57|Anna_Menethil|2011-11-12 00:50:29
+38|Anna_Potter|2009-10-14 12:27:36
+70|Anna_Wildhammer|2012-11-15 11:01:29
+30|Anton_Doomhammer|2011-09-01 19:35:23
+34|Anton_Liadrin|2009-11-02 08:16:06
+
+#2 
+sqlite> select * from Users order by registered DESC limit 5;
+72|Kate_Shadowsong|2016-03-22 14:11:53
+13|Bob_Gorefiend|2016-01-02 22:09:20
+79|Daria_Windrunner|2015-11-14 07:20:33
+29|Bob_Mekkatorque|2015-03-09 07:38:48
+11|Penelope_Sanguinar|2014-12-23 09:20:39
+
+#3 
+sqlite> select * from Listened order by user_id limit 5;
+1|2409|2006-05-22 07:14:28
+1|2883|2011-01-02 17:15:46
+1|3283|2005-06-27 17:35:46
+1|5806|2009-02-07 16:49:46
+1|4639|2008-01-19 18:16:54
+
+
