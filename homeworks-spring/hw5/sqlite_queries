@@ -1,0 +1,29 @@
+-- #1 Вся информация о всех пользователях (все колонки в любом порядке)
+
+select * from Users;
+
+-- #2 Количество всех пользователей (число)
+
+select count (*) from Users;
+
+-- #3 Количество пользователей 40 лет или старше (число).
+
+select count (*) from Users where birth_date <= date("1976-05-22");
+
+-- #4 Страна + количество пользователей из данной страны
+
+select country, count (*) from Users group by country;
+
+-- #5 Есть ли люди с одинаковыми именами
+
+select name, count (*) from Users group by name; -- вот так это выглядит: Yuri Wrynn|2
+
+-- №6 Количество заказов в 2016 году
+
+select count (*) from Orders where created > date("2016-01-01"); --58 штук
+
+-- День, когда совершили наибольшее число заказов  (день|число заказов)
+
+select date(created), count(*) as counts from Orders group by date(created) order by counts desc limit 1; --2005-01-04|4
+
+
