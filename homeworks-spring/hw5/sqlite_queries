@@ -37,5 +37,13 @@ select * from Goods where name like "%bread%";
 
 --№ 10 Самые 10 популярных товаров (встречаемость в GoodsInOrders)
 
+select count (*) as number from GoodsInOrders group by good_id -- это количество товаров
+select id from Goods inner join GoodsInOrders on good_id; -- это имена товаров
+
+-- это Олега https://github.com/Gurdhhu/python_course/blob/master/homeworks_spring/homework5/hw.sql
+--select id, name, count(*) as num from GoodsInOrders
+--inner join Goods on id = good_id
+--group by good_id
+--order by num desc limit 10;
 
 
