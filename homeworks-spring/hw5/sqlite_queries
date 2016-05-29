@@ -28,8 +28,8 @@ select date(created), count(*) as counts from Orders group by date(created) orde
 
 -- №8 Процент неоплаченных заказов (число).
 
-select (select count (*) from Orders where paid == 0)
- /(select count (*) from Orders); -- почему-то 0, но так-то это что-то вроде 25%
+select (select count (*) from Orders where paid == 0) * 1.0
+ /(select count (*) from Orders); -- Заработало!!!! 26% выходит!
 
 -- №9 Всю информацию о хлебе среди товаров.
 
@@ -37,8 +37,9 @@ select * from Goods where name like "%bread%";
 
 --№ 10 Самые 10 популярных товаров (встречаемость в GoodsInOrders)
 
-select count (*) as number from GoodsInOrders group by good_id -- это количество товаров
-select id from Goods inner join GoodsInOrders on good_id; -- это имена товаров
+select id, name, count (*) as number from GoodsInOrders
+inner join Goods on id = good_id
+inner join GoodsInOrders on good_id = ; -- это имена товаров
 
 -- это Олега https://github.com/Gurdhhu/python_course/blob/master/homeworks_spring/homework5/hw.sql
 --select id, name, count(*) as num from GoodsInOrders
