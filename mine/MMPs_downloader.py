@@ -9,44 +9,46 @@ parser = argparse.ArgumentParser(description="Downloads the nucleotide and prote
 
 parser.add_argument("gene",
                     type=str,
-                    help="Gene name for searching the nucleotide database")
+                    help="Gene name for searching the database")
 
 parser.add_argument("type",
-                    nargs='+',
+                    nargs='?',
+                    default="Genomic",
                     type=str,
                     choices=["Genomic", "Transcript", "Protein"],
                     help="Type of the biomolecule to find")
 
-parser.add_argument("refseq",
+parser.add_argument("-refseq",
                     nargs='?',
                     type=bool,
                     default=False,
-                    choices=[True, False],
+                    # choices=[True, False],
                     help="Search only in RefSeq database")
 
-parser.add_argument("organism",
+parser.add_argument("-orgn",
                     nargs='?',
                     type=str,
                     help="Organism to search sequences for")
 
 args = parser.parse_args()
+print(args)
 gene = args.gene
 mol_type = args.type
 refseq = args.refseq
-organism = args.organism
+organism = args.orgn
 
-print(gene, mol_type, refseq, organism)
+
 
 Entrez.email = 'panyushev@nextmail.ru'
 
 term = gene + '[GENE]'
 
 if organism:
-    term = term + 'AND ' + organism + '[ORGN]'
+    term = term + ' AND ' + organism + '[ORGN]'
     print(term)
 
 if refseq:
-    term = term + 'AND refseq[filter]'
+    term = term + ' AND refseq[filter]'
     print(term)
 
 if mol_type == "Genomic":
@@ -61,7 +63,9 @@ elif mol_type == "Transcript":
     # handle = Entrez.esearch(db='nucleotide', term=term)
 
 elif mol_type == "Protein":
-    handle = Entrez.esearch(db='protein', term=term)
+    print(term)
+
+    #handle = Entrez.esearch(db='protein', term=term)
 
 
 # result = Entrez.read(handle)
