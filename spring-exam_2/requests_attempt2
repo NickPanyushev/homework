@@ -1,0 +1,37 @@
+1. select * from Users order by registered;
+
+2. select * from Users where registered >= date("2015-12-31");
+
+3. select *, count (*) as number from Listened
+inner join Users on id = user_id
+where start_time >= date("2016-01-01")
+group by user_id order by number desc limit 5;
+
+4. select Artists.name, count (*) as number from Albums
+ inner join Artists on Artists.id = artist_id
+ group by Artists.id order by number desc limit 5;
+
+5. select Artists.name, count (*) as number from Albums
+ inner join Artists on Artists.id = artist_id
+ inner join Songs on Albums.id = album_id
+ group by Artists.id order by number;
+
+6. select Artists.name, count (*) as number from Albums
+ inner join Artists on Artists.id = artist_id
+ inner join Songs on Albums.id = album_id
+ group by Artists.id order by number desc limit 1;
+
+7. select Artists.name, total (duration) as song_length from Albums
+ inner join Artists on Artists.id = artist_id
+ inner join Songs on Albums.id = album_id
+ group by Artists.id order by song_length desc limit 1;
+
+8. select Artists.name, total (duration)/ count (*) as median_length from Albums
+ inner join Artists on Artists.id = artist_id
+ inner join Songs on Albums.id = album_id
+ group by Artists.id order by median_length desc limit 1;
+
+9. select Artists.name, Albums.name, Song.name total (duration)/ count (*) as  from Albums
+ inner join Artists on Artists.id = artist_id
+ inner join Songs on Albums.id = album_id
+ group by Artists.id order by median_length desc limit 1;

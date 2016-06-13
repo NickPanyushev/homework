@@ -29,21 +29,24 @@ organism = args.organism
 
 Entrez.email = 'panyushev@nextmail.ru'
 
+term = gene + '[GENE]'
+
 if organism:
-    term = organism + '[ORGN]' + 'AND ' + gene + '[GENE]'
-else:
-    term = gene + '[GENE]'
+    term = term + 'AND ' + organism + '[ORGN]'
 
 if mol_type == "Genomic":
-    term = term + ' AND ' + "biomol_genomic"
+    term = term + ' AND ' + "biomol_genomic[PROP]"
+
 elif mol_type == "Transcript":
-    term = term + ' AND ' + "(biomol_mrna OR biomol_rrna OR biomol_crna OR biomol_scrna" \
-                            "OR biomol_snrna OR biomol_snorna OR biomol_trna)"
+    term = term + ' AND ' + "(biomol_mrna[PROP] OR biomol_rrna[PROP] OR biomol_crna[PROP]" \
+                            " OR biomol_scrna[PROP] OR biomol_snrna[PROP] OR biomol_snorna[PROP] OR biomol_trna[PROP])"
 
     handle = Entrez.esearch(db='nucleotide', term=term)
 
 elif mol_type == "Protein":
-    term = term + ' AND ' +
+    term = term + ' AND ' + 
+    handle = Entrez.esearch(db='protein', term=term)
+
 result = Entrez.read(handle)
 # print(result)
 
