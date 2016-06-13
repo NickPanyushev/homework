@@ -31,9 +31,8 @@ group by user_id order by number desc limit 5;
  inner join Songs on Albums.id = album_id
  group by Artists.id order by median_length desc limit 1;
 
-9. select Artists.name, Albums.name, Song.name, count (*) as popular from Listened
+9. select Artists.name, Albums.name, Songs.name, count (*) as popular from Listened
  inner join Artists on Artists.id = artist_id
  inner join Songs on Songs.id = song_id
  inner join Albums on Albums.id = album_id
- inner join Listened on Songs.id = song_id
  group by Artists.id order by popular desc limit 5;
