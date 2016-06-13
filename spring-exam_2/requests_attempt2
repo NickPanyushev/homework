@@ -35,4 +35,4 @@ group by user_id order by number desc limit 5;
  inner join Artists on Artists.id = artist_id
  inner join Songs on Songs.id = song_id
  inner join Albums on Albums.id = album_id
- group by Artists.id order by popular desc limit 5;
+ group by Songs.id order by popular desc limit 5;

@@ -22,6 +22,13 @@ parser.add_argument("mol_type",
                     choices=["Genomic", "Transcript", "Protein"],
                     help="Type of the biomolecule to find")
 
+parser.add_argument("refseq",
+                    nargs=1,
+                    type=bool,
+                    default=
+                    choices = ["Genomic", "Transcript", "Protein"],
+                              help = "Search only in RefSeq database")
+
 args = parser.parse_args()
 mol_type = args.mol_type
 gene = args.gene
