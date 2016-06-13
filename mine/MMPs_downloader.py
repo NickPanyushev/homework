@@ -11,28 +11,31 @@ parser.add_argument("gene",
                     type=str,
                     help="Gene name for searching the nucleotide database")
 
-parser.add_argument("organism",
-                    nargs='?',
-                    type=str,
-                    help="Organism to search sequences for")
-
-parser.add_argument("mol_type",
-                    nargs='?',
+parser.add_argument("type",
+                    nargs='+',
                     type=str,
                     choices=["Genomic", "Transcript", "Protein"],
                     help="Type of the biomolecule to find")
 
 parser.add_argument("refseq",
-                    nargs=1,
+                    nargs='?',
                     type=bool,
-                    default=
-                    choices = ["Genomic", "Transcript", "Protein"],
-                              help = "Search only in RefSeq database")
+                    default=False,
+                    choices=[True, False],
+                    help="Search only in RefSeq database")
+
+parser.add_argument("organism",
+                    nargs='?',
+                    type=str,
+                    help="Organism to search sequences for")
 
 args = parser.parse_args()
-mol_type = args.mol_type
 gene = args.gene
+mol_type = args.type
+refseq = args.refseq
 organism = args.organism
+
+print(gene, mol_type, refseq, organism)
 
 Entrez.email = 'panyushev@nextmail.ru'
 
@@ -40,21 +43,30 @@ term = gene + '[GENE]'
 
 if organism:
     term = term + 'AND ' + organism + '[ORGN]'
+    print(term)
+
+if refseq:
+    term = term + 'AND refseq[filter]'
+    print(term)
 
 if mol_type == "Genomic":
-    term = term + ' AND ' + "biomol_genomic[PROP]"
+    term = term + " AND biomol_genomic[PROP]"
+    print(term)
 
 elif mol_type == "Transcript":
-    term = term + ' AND ' + "(biomol_mrna[PROP] OR biomol_rrna[PROP] OR biomol_crna[PROP]" \
-                            " OR biomol_scrna[PROP] OR biomol_snrna[PROP] OR biomol_snorna[PROP] OR biomol_trna[PROP])"
+    term = term + " AND (biomol_mrna[PROP] OR biomol_rrna[PROP] OR biomol_crna[PROP]" \
+                  " OR biomol_scrna[PROP] OR biomol_snrna[PROP] OR biomol_snorna[PROP] OR biomol_trna[PROP])"
+    print(term)
 
-    handle = Entrez.esearch(db='nucleotide', term=term)
+    # handle = Entrez.esearch(db='nucleotide', term=term)
 
 elif mol_type == "Protein":
-    term = term + ' AND ' + 
     handle = Entrez.esearch(db='protein', term=term)
 
-result = Entrez.read(handle)
+
+# result = Entrez.read(handle)
+
+
 # print(result)
 
 # for i in result['IdList']:
