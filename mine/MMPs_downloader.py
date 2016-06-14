@@ -1,11 +1,12 @@
 #!/usr/bin/python3.4
 
-from Bio import Entrez
 import argparse
-from pprint import pprint
 
-parser = argparse.ArgumentParser(description="Downloads the nucleotide and protein sequences "
-                                             " of the given genes")
+from Bio import Entrez, SeqIO
+import time
+
+parser = argparse.ArgumentParser(description="Downloads the nucleotide or protein sequences "
+                                             " of the given genes.")
 
 parser.add_argument("gene",
                     type=str,
@@ -50,26 +51,36 @@ if refseq == "y":
     term = term + ' AND refseq[filter]'
 
 if mol_type == "Protein":
-    handle = Entrez.esearch(db='protein', term=term)
+    database = "protein"
 
 elif mol_type == "Genomic":
     term = term + " AND biomol_genomic[PROP]"
-    handle = Entrez.esearch(db='nucleotide', term=term)
+    database = "nucleotide"
 
 elif mol_type == "Transcript":
+    database = "nucleotide"
     term = term + " AND (biomol_mrna[PROP] OR biomol_rrna[PROP] OR biomol_crna[PROP]" \
                   " OR biomol_scrna[PROP] OR biomol_snrna[PROP] OR biomol_snorna[PROP] OR biomol_trna[PROP])"
-    handle = Entrez.esearch(db='nucleotide', term=term)
 
-
-
-result = Entrez.read(handle)
+search_handle = Entrez.esearch(db=database, term=term, retmax=20)
+result = Entrez.read(search_handle)
+search_handle.close()
 #pprint(result)
+print('For the %s query %s record(s) were found.' % (term, result['Count']))
 
 for i in result['IdList']:
-    print(i)
+    print("\n", i)
+    handle = Entrez.efetch(db='nuccore', id=i, rettype="gb", retmode="text")
+    for seq_record in SeqIO.parse(handle, "gb"):
+        print("%s %s..." % (seq_record.id, seq_record.description[:50]))
+        print("Sequence length %i, %i features, from: %s"
+              % (len(seq_record), len(seq_record.features), seq_record.annotations["source"]))
+    handle.close()
+    time.sleep(3)
+    # print (record)
+
 #     ID_output = Entrez.esummary(db='nucleotide', id=i)
 #     out_dict = Entrez.read(ID_output)[0]
-# print(out_dict)
+# pprint(out_dict)
 #out = [out_dict['Accession'], out_dict['taxon'], out_dict['title']]
 #print('\t'.join(out))
