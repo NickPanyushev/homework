@@ -1,8 +1,8 @@
 #!/usr/bin/python3.4
 
 import argparse
-
 from Bio import Entrez, SeqIO
+from pprint import pprint
 import time
 
 parser = argparse.ArgumentParser(description="Downloads the nucleotide or protein sequences "
@@ -58,26 +58,48 @@ elif mol_type == "Genomic":
     database = "nucleotide"
 
 elif mol_type == "Transcript":
-    database = "nucleotide"
+    database = "nuccore"
     term = term + " AND (biomol_mrna[PROP] OR biomol_rrna[PROP] OR biomol_crna[PROP]" \
                   " OR biomol_scrna[PROP] OR biomol_snrna[PROP] OR biomol_snorna[PROP] OR biomol_trna[PROP])"
 
 search_handle = Entrez.esearch(db=database, term=term, retmax=20)
 result = Entrez.read(search_handle)
+summary = Entrez.esummary()
+print(summary)
 search_handle.close()
 #pprint(result)
-print('For the %s query %s record(s) were found.' % (term, result['Count']))
 
-for i in result['IdList']:
-    print("\n", i)
-    handle = Entrez.efetch(db='nuccore', id=i, rettype="gb", retmode="text")
-    for seq_record in SeqIO.parse(handle, "gb"):
-        print("%s %s..." % (seq_record.id, seq_record.description[:50]))
-        print("Sequence length %i, %i features, from: %s"
-              % (len(seq_record), len(seq_record.features), seq_record.annotations["source"]))
-    handle.close()
-    time.sleep(3)
-    # print (record)
+print('For the %s query %s record(s) were found.' % (term, result['Count']))
+print (result['IdList'])
+print(Entrez.esummary(db=database, id=result['IdList']))
+handle = Entrez.efetch(db=database, id=result['IdList'], rettype='fasta', retmode="text")
+seq = handle.read()
+print(seq)
+
+
+#Дальше код Юры
+
+# for orgn in organisms:
+#     for gene in genes:
+#         query = orgn + '[Orgn] AND ' + gene + '[Gene]'
+#         hnd = e.esearch(db='gene', term=query)
+#         record = e.read(hnd)
+#         hnd = e.elink(dbfrom='gene', db='nucleotide', id=record['IdList'][0], linkname='gene_nuccore_refseqrna')
+# record = e.read(hnd)
+# nuc_id = record[0]["LinkSetDb"][0]["Link"][0]["Id"]
+# hnd = e.efetch(db='nucleotide', id=nuc_id, rettype='fasta', retmode='text')
+# seq = hnd.read()
+# # with open(orgn + '_' + gene + '.fa', 'w') as ofile:
+# #     ofile.write(seq)
+
+
+
+
+
+
+
+
+
 
 #     ID_output = Entrez.esummary(db='nucleotide', id=i)
 #     out_dict = Entrez.read(ID_output)[0]
